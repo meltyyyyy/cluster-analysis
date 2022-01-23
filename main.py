@@ -5,4 +5,5 @@ from quantization import quantization
 # k_means.execute()
 # bad_practice.execute()
 # quantization.execute()
-agg.execute()
+# agg.execute()
+
