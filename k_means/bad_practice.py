@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import mglearn
 import numpy as np
 from sklearn.cluster import KMeans
-from sklearn.datasets import make_blobs
+from sklearn.datasets import make_blobs, make_moons
 
 
 def execute():
@@ -36,4 +36,16 @@ def execute():
     plt.ylabel("Feature 1")
     fig.savefig('k_means/bad_practice_not_rounded.png')
 
+    X, y = make_moons(n_samples=200, noise=0.05, random_state=0)
 
+    kmeans = KMeans(n_clusters=2)
+    kmeans.fit(X)
+    y_pred = kmeans.predict(X)
+
+    fig = plt.figure()
+    plt.scatter(X[:, 0], X[:, 1], c=y_pred, cmap=mglearn.cm2, s=60)
+    plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], marker='^', c=[mglearn.cm2(0), mglearn.cm2(1)],
+                s=100, linewidths=2)
+    plt.xlabel("Feature 0")
+    plt.ylabel("Feature 1")
+    fig.savefig('k_means/bad_practice_complex.png')
