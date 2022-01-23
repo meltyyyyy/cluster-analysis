@@ -17,3 +17,17 @@ def execute():
     mglearn.discrete_scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], [0, 1, 2], markers='^',
                              markeredgewidth=2)
     fig.savefig('k_means/3_means.png')
+
+    fig, axes = plt.subplots(1, 2, figsize=(10, 5))
+
+    kmeans = KMeans(n_clusters=2)
+    kmeans.fit(X)
+    assignments = kmeans.labels_
+    mglearn.discrete_scatter(X[:, 0], X[:, 1], assignments, ax=axes[0])
+
+    kmeans = KMeans(n_clusters=5)
+    kmeans.fit(X)
+    assignments = kmeans.labels_
+    mglearn.discrete_scatter(X[:, 0], X[:, 1], assignments, ax=axes[1])
+
+    fig.savefig('k_means/2,5-means.png')
