@@ -57,3 +57,5 @@ def execute():
     axes[2,0].set_ylabel("pca")
     axes[3,0].set_ylabel("nmf")
     fig.savefig('quantization/reconstructed.png')
+
+
