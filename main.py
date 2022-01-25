@@ -1,4 +1,5 @@
 from agg import agg
+from assessment import ari
 from dbscan import dbscan
 from k_means import k_means, bad_practice
 from quantization import quantization
@@ -7,4 +8,5 @@ from quantization import quantization
 # bad_practice.execute()
 # quantization.execute()
 # agg.execute()
-dbscan.execute()
+# dbscan.execute()
+ari.execute()
